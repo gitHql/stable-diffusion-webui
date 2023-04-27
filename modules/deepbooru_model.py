@@ -4,7 +4,7 @@ import torch.nn.functional as F
 
 from modules import devices
 
-# see https://github.com/AUTOMATIC1111/TorchDeepDanbooru for more
+# see https://github.moeyy.xyz/https://github.com/AUTOMATIC1111/TorchDeepDanbooru for more
 
 
 class DeepDanbooruModel(nn.Module):

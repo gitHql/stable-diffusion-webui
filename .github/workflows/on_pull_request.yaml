@@ -1,4 +1,4 @@
-# See https://github.com/actions/starter-workflows/blob/1067f16ad8a1eac328834e4b0ae24f7d206f810d/ci/pylint.yml for original reference file
+# See https://github.moeyy.xyz/https://github.com/actions/starter-workflows/blob/1067f16ad8a1eac328834e4b0ae24f7d206f810d/ci/pylint.yml for original reference file
 name: Run Linting/Formatting on Pull Requests
 
 on:

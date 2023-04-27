@@ -330,7 +330,7 @@ def create_ui():
             with gr.TabItem("Available"):
                 with gr.Row():
                     refresh_available_extensions_button = gr.Button(value="Load from:", variant="primary")
-                    available_extensions_index = gr.Text(value="https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui-extensions/master/index.json", label="Extension index URL").style(container=False)
+                    available_extensions_index = gr.Text(value="file:///media/smark/0c8dea9f-f8fa-462a-a9ec-ce0ebb0a8ebd/AI/stable-diffusion-webui/index.json", label="Extension index URL").style(container=False)
                     extension_to_install = gr.Text(elem_id="extension_to_install", visible=False)
                     install_extension_button = gr.Button(elem_id="install_extension_button", visible=False)
 

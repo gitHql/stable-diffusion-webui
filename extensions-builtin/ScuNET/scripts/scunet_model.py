@@ -17,8 +17,8 @@ class UpscalerScuNET(modules.upscaler.Upscaler):
         self.name = "ScuNET"
         self.model_name = "ScuNET GAN"
         self.model_name2 = "ScuNET PSNR"
-        self.model_url = "https://github.com/cszn/KAIR/releases/download/v1.0/scunet_color_real_gan.pth"
-        self.model_url2 = "https://github.com/cszn/KAIR/releases/download/v1.0/scunet_color_real_psnr.pth"
+        self.model_url = "https://github.moeyy.xyz/https://github.com/cszn/KAIR/releases/download/v1.0/scunet_color_real_gan.pth"
+        self.model_url2 = "https://github.moeyy.xyz/https://github.com/cszn/KAIR/releases/download/v1.0/scunet_color_real_psnr.pth"
         self.user_path = dirname
         super().__init__()
         model_paths = self.find_models(ext_filter=[".pth"])

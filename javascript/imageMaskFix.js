@@ -1,6 +1,6 @@
 /**
- * temporary fix for https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/668
- * @see https://github.com/gradio-app/gradio/issues/1721
+ * temporary fix for https://github.moeyy.xyz/https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/668
+ * @see https://github.moeyy.xyz/https://github.com/gradio-app/gradio/issues/1721
  */
 window.addEventListener( 'resize', () => imageMaskResize());
 function imageMaskResize() {

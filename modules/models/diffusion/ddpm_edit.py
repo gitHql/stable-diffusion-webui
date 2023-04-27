@@ -1,12 +1,12 @@
 """
 wild mixture of
-https://github.com/lucidrains/denoising-diffusion-pytorch/blob/7706bdfc6f527f58d33f84b7b522e61e6e3164b3/denoising_diffusion_pytorch/denoising_diffusion_pytorch.py
-https://github.com/openai/improved-diffusion/blob/e94489283bb876ac1477d5dd7709bbbd2d9902ce/improved_diffusion/gaussian_diffusion.py
-https://github.com/CompVis/taming-transformers
+https://github.moeyy.xyz/https://github.com/lucidrains/denoising-diffusion-pytorch/blob/7706bdfc6f527f58d33f84b7b522e61e6e3164b3/denoising_diffusion_pytorch/denoising_diffusion_pytorch.py
+https://github.moeyy.xyz/https://github.com/openai/improved-diffusion/blob/e94489283bb876ac1477d5dd7709bbbd2d9902ce/improved_diffusion/gaussian_diffusion.py
+https://github.moeyy.xyz/https://github.com/CompVis/taming-transformers
 -- merci
 """
 
-# File modified by authors of InstructPix2Pix from original (https://github.com/CompVis/stable-diffusion).
+# File modified by authors of InstructPix2Pix from original (https://github.moeyy.xyz/https://github.com/CompVis/stable-diffusion).
 # See more details in LICENSE.
 
 import torch

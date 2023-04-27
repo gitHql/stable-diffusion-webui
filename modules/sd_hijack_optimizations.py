@@ -37,7 +37,7 @@ def get_available_vram():
         return psutil.virtual_memory().available
 
 
-# see https://github.com/basujindal/stable-diffusion/pull/117 for discussion
+# see https://github.moeyy.xyz/https://github.com/basujindal/stable-diffusion/pull/117 for discussion
 def split_cross_attention_forward_v1(self, x, context=None, mask=None):
     h = self.heads
 
@@ -78,7 +78,7 @@ def split_cross_attention_forward_v1(self, x, context=None, mask=None):
     return self.to_out(r2)
 
 
-# taken from https://github.com/Doggettx/stable-diffusion and modified
+# taken from https://github.moeyy.xyz/https://github.com/Doggettx/stable-diffusion and modified
 def split_cross_attention_forward(self, x, context=None, mask=None):
     h = self.heads
 
@@ -142,7 +142,7 @@ def split_cross_attention_forward(self, x, context=None, mask=None):
     return self.to_out(r2)
 
 
-# -- Taken from https://github.com/invoke-ai/InvokeAI and modified --
+# -- Taken from https://github.moeyy.xyz/https://github.com/invoke-ai/InvokeAI and modified --
 mem_total_gb = psutil.virtual_memory().total // (1 << 30)
 
 def einsum_op_compvis(q, k, v):
@@ -234,10 +234,10 @@ def split_cross_attention_forward_invokeAI(self, x, context=None, mask=None):
     r = r.to(dtype)
     return self.to_out(rearrange(r, '(b h) n d -> b n (h d)', h=h))
 
-# -- End of code from https://github.com/invoke-ai/InvokeAI --
+# -- End of code from https://github.moeyy.xyz/https://github.com/invoke-ai/InvokeAI --
 
 
-# Based on Birch-san's modified implementation of sub-quadratic attention from https://github.com/Birch-san/diffusers/pull/1
+# Based on Birch-san's modified implementation of sub-quadratic attention from https://github.moeyy.xyz/https://github.com/Birch-san/diffusers/pull/1
 # The sub_quad_attention_forward function is under the MIT License listed under Memory Efficient Attention in the Licenses section of the web UI interface
 def sub_quad_attention_forward(self, x, context=None, mask=None):
     assert mask is None, "attention-mask not currently implemented for SubQuadraticCrossAttnProcessor."
@@ -346,7 +346,7 @@ def xformers_attention_forward(self, x, context=None, mask=None):
     out = rearrange(out, 'b n h d -> b n (h d)', h=h)
     return self.to_out(out)
 
-# Based on Diffusers usage of scaled dot product attention from https://github.com/huggingface/diffusers/blob/c7da8fd23359a22d0df2741688b5b4f33c26df21/src/diffusers/models/cross_attention.py
+# Based on Diffusers usage of scaled dot product attention from https://github.moeyy.xyz/https://github.com/huggingface/diffusers/blob/c7da8fd23359a22d0df2741688b5b4f33c26df21/src/diffusers/models/cross_attention.py
 # The scaled_dot_product_attention_forward function contains parts of code under Apache-2.0 license listed under Scaled Dot Product Attention in the Licenses section of the web UI interface
 def scaled_dot_product_attention_forward(self, x, context=None, mask=None):
     batch_size, sequence_length, inner_dim = x.shape

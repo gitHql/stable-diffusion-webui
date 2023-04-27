@@ -1,4 +1,4 @@
-# this file is adapted from https://github.com/victorca25/iNNfer
+# this file is adapted from https://github.moeyy.xyz/https://github.com/victorca25/iNNfer
 
 from collections import OrderedDict
 import math
@@ -183,7 +183,7 @@ def conv1x1(in_planes, out_planes, stride=1):
 
 class SRVGGNetCompact(nn.Module):
     """A compact VGG-style network structure for super-resolution.
-    This class is copied from https://github.com/xinntao/Real-ESRGAN
+    This class is copied from https://github.moeyy.xyz/https://github.com/xinntao/Real-ESRGAN
     """
 
     def __init__(self, num_in_ch=3, num_out_ch=3, num_feat=64, num_conv=16, upscale=4, act_type='prelu'):

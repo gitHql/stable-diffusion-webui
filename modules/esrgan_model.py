@@ -13,7 +13,7 @@ from modules.shared import opts
 
 
 def mod2normal(state_dict):
-    # this code is copied from https://github.com/victorca25/iNNfer
+    # this code is copied from https://github.moeyy.xyz/https://github.com/victorca25/iNNfer
     if 'conv_first.weight' in state_dict:
         crt_net = {}
         items = []
@@ -48,7 +48,7 @@ def mod2normal(state_dict):
 
 
 def resrgan2normal(state_dict, nb=23):
-    # this code is copied from https://github.com/victorca25/iNNfer
+    # this code is copied from https://github.moeyy.xyz/https://github.com/victorca25/iNNfer
     if "conv_first.weight" in state_dict and "body.0.rdb1.conv1.weight" in state_dict:
         re8x = 0
         crt_net = {}
@@ -78,7 +78,7 @@ def resrgan2normal(state_dict, nb=23):
         crt_net['model.6.bias'] = state_dict['conv_up2.bias']
 
         if 'conv_up3.weight' in state_dict:
-            # modification supporting: https://github.com/ai-forever/Real-ESRGAN/blob/main/RealESRGAN/rrdbnet_arch.py
+            # modification supporting: https://github.moeyy.xyz/https://github.com/ai-forever/Real-ESRGAN/blob/main/RealESRGAN/rrdbnet_arch.py
             re8x = 3
             crt_net['model.9.weight'] = state_dict['conv_up3.weight']
             crt_net['model.9.bias'] = state_dict['conv_up3.bias']
@@ -93,7 +93,7 @@ def resrgan2normal(state_dict, nb=23):
 
 
 def infer_params(state_dict):
-    # this code is copied from https://github.com/victorca25/iNNfer
+    # this code is copied from https://github.moeyy.xyz/https://github.com/victorca25/iNNfer
     scale2x = 0
     scalemin = 6
     n_uplayer = 0
@@ -127,7 +127,7 @@ def infer_params(state_dict):
 class UpscalerESRGAN(Upscaler):
     def __init__(self, dirname):
         self.name = "ESRGAN"
-        self.model_url = "https://github.com/cszn/KAIR/releases/download/v1.0/ESRGAN.pth"
+        self.model_url = "https://github.moeyy.xyz/https://github.com/cszn/KAIR/releases/download/v1.0/ESRGAN.pth"
         self.model_name = "ESRGAN_4x"
         self.scalers = []
         self.user_path = dirname

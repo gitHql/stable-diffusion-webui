@@ -12,7 +12,7 @@ from modules.processing import Processed, process_images
 from modules.shared import opts, cmd_opts, state
 
 
-# this function is taken from https://github.com/parlance-zz/g-diffuser-bot
+# this function is taken from https://github.moeyy.xyz/https://github.com/parlance-zz/g-diffuser-bot
 def get_matched_noise(_np_src_image, np_mask_rgb, noise_q=1, color_variation=0.05):
     # helper fft routines that keep ortho normalization and auto-shift before and after fft
     def _fft2(data):

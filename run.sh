@@ -1,0 +1,1 @@
+python launch.py  --xformers --share  --enable-insecure-extension-access --listen --nowebui
