@@ -334,7 +334,7 @@ def webui():
         extra_networks.register_extra_network(extra_networks_hypernet.ExtraNetworkHypernet())
         startup_timer.record("initialize extra networks")
 
-
+import asyncio
 if sys.platform == "win32" and hasattr(asyncio, "WindowsSelectorEventLoopPolicy"):
     # "Any thread" and "selector" should be orthogonal, but there's not a clean
     # interface for composing policies so pick the right base.
