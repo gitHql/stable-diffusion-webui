@@ -12,6 +12,7 @@ from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from fastapi.exceptions import HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
+from fastapi import FastAPI, File, UploadFile
 from secrets import compare_digest
 
 import modules.shared as shared
@@ -59,10 +60,12 @@ def decode_base64_to_image(encoding):
     if encoding.startswith("data:image/"):
         encoding = encoding.split(";")[1].split(",")[1]
     try:
+        print(encoding)
         image = Image.open(BytesIO(base64.b64decode(encoding)))
         return image
     except Exception as err:
-        raise HTTPException(status_code=500, detail="Invalid encoded image")
+        print(err)
+        raise HTTPException(status_code=500, detail="Invalid encoded image from smark")
 
 def encode_pil_to_base64(image):
     with io.BytesIO() as output_bytes:
@@ -176,6 +179,7 @@ class Api:
         self.add_api_route("/sdapi/v1/interrogate", self.interrogateapi, methods=["POST"])
         self.add_api_route("/sdapi/v1/interrupt", self.interruptapi, methods=["POST"])
         self.add_api_route("/sdapi/v1/skip", self.skip, methods=["POST"])
+        self.add_api_route("/sdapi/v1/remove-bg", self.remove_bg, methods=["POST"], response_model=ExtrasSingleImageResponse)
         self.add_api_route("/sdapi/v1/options", self.get_config, methods=["GET"], response_model=OptionsModel)
         self.add_api_route("/sdapi/v1/options", self.set_config, methods=["POST"])
         self.add_api_route("/sdapi/v1/cmd-flags", self.get_cmd_flags, methods=["GET"], response_model=FlagsModel)
@@ -200,6 +204,26 @@ class Api:
 
         self.default_script_arg_txt2img = []
         self.default_script_arg_img2img = []
+
+    async def remove_bg(self, file: UploadFile = File(...)):
+        # 从上传的文件中读取图片
+        import cv2
+        import numpy as np
+        import base64
+        input_image = cv2.imdecode(np.frombuffer(await file.read(), np.uint8), cv2.IMREAD_COLOR)
+
+        from rembg import remove
+        # 使用rembg库删除背景file
+        output_image = remove(input_image)
+
+        is_success, buffer = cv2.imencode(".png", output_image)
+        if not is_success:
+            raise Exception("Could not encode image as PNG.")
+
+        base64_encoded_image = base64.b64encode(buffer.tobytes()).decode('utf-8')
+
+
+        return ExtrasSingleImageResponse(image=base64_encoded_image, html_info='')
 
     def add_api_route(self, path: str, endpoint, **kwargs):
         if shared.cmd_opts.api_auth:
